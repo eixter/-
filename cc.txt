@@ -1,0 +1,21 @@
+       大杂烩之字符文字处理
+------------------------------------------------------------------------------------------------
+import requests
+from lxml import html
+import os
+rt=html.etree
+u=['https://pic.netbian.com/4kmeinv/index.html','https://pic.netbian.com/4kmeinv/index_2.html','https://pic.netbian.com/4kmeinv/index_3.html','https://pic.netbian.com/4kmeinv/index_4.html']
+#
+url=u[0]
+headers={'user-agent':'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/103.0.0.0 Safari/537.36'}
+re=requests.get(url=url,headers=headers).text
+se=rt.HTML(re)
+s=se.xpath('//*[@id="main"]/div/ul/li/a/img/@alt')
+s1=se.xpath('//*[@id="main"]/div/ul/li/a/img/@src')
+for i in s:
+    #for a in s1:
+  img_name = i.encode('iso-8859-1').decode('gbk')
+  print(img_name)
+for a in s1:
+    print(a)
+------------------------------------------------------------------------------------------------

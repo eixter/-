@@ -1,0 +1,34 @@
+                    re,lxml,requetst大杂烩
+------------------------------------------------------------------------------------------------
+import requests
+from bs4 import BeautifulSoup
+from lxml import html
+import re
+err=html.etree
+url1='https://www.xs8.cn/book/21951764608273304'
+url='https://www.xs8.cn/chapter/21951764608273304/59406205512563323'
+res=requests.get(url=url1)
+se=err.HTML(res.text)
+sc=se.xpath('//*[@id="j-catalogWrap"]/div[2]/div[1]/ul/li/a')
+sc1=se.xpath('//*[@id="j-catalogWrap"]/div[2]/div[1]/ul/li[1]/a/@href')
+for i in sc1:
+    print(i)
+    ssc=str(i)
+    er=re.search('www.*',i)
+    src=er.group()
+    url11='https://'+src
+    print(url11)
+    er=html.etree
+    headers={
+        'user-agent':'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/102.0.5005.115 Safari/537.36'
+    }
+    bash=requests.get(url=url11,headers=headers)
+    print(bash)
+    a=err.HTML(bash.text)
+    b=a.xpath('//*[@id="chapter-59406205512563323"]/div/div[1]/h3')
+    n=a.xpath('//*[@id="chapter-59406205512563323"]/div/div[2]/div/p')
+    print(n)
+    for x in b:
+        print(x.text)
+
+
