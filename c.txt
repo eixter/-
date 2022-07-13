@@ -1,0 +1,12 @@
+#抖音短视频拿到手了
+import requests
+import re
+#uel1='https://tb-video.bdstatic.com/tieba-smallvideo-transcode-crf/9259826_81ac3e8c70c05956558225719d82adfb_89a301d1da22_0.mp4?vt=1&pt=3&ver=&cr=2&cd=0&sid=&ft=8&tbau=2022-07-14_babdfc488ff5f350c506655bd2b0c7128923504bc3930c94279c431cc8045813&ptid=7921806642'
+#url='https://lf3-pendah.bytetos.com/obj/pendah/fonts/f920056922fa1623'
+ulr='https://v26-web.douyinvod.com/f649615c4c10295b72db636acba4ff6b/62ced1d4/video/tos/cn/tos-cn-ve-15c001-alinc2/1909bebb77414d91a38784b90dd420b6/?a=6383&ch=164&cr=0&dr=0&lr=all&cd=0%7C0%7C0%7C0&cv=1&br=1381&bt=1381&cs=0&ds=3&ft=t2zLrtjjM9g8xrFqEZmCTeK_ScoApafAZ4vrKqt74sto0&mime_type=video_mp4&qs=0&rc=NzVnOTk7aTRoZWZmaTc0OEBpamllO2U6ZnZsPDMzNGkzM0BgYGE0YTNgXzMxYTBjLTU2YSNscC5hcjRvXmVgLS1kLTBzcw%3D%3D&l=20220713210650010158116041361D7BF5'
+rec=requests.get(url=ulr)
+with open('a.mv','wb')as fp:
+    fp.write(rec.content)
+    fp.close()
+
+
